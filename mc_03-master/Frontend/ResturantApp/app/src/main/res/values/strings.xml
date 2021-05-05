@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">ResturantApplication</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="signUp_page_direct">Click Here To Sign Up</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="firstname">Firstname</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="lastname">Lastname</string>
+    <string name="username">Username</string>
+    <string name="emptyFields">Please Fill Out All the Fields</string>
+    <string name="email_username">Username</string>
+    <string name="login">Login</string>
+    <string name="profile">Profile</string>
+    <string name="submit">Submit</string>
+    <string name="NoReview">No review given</string>
+    <string name="new_email">New Email</string>
+    <string name="cancel">Cancel</string>
+    <string name="new_username">New Username</string>
+    <string name="new_lastname">New LastName</string>
+    <string name="new_firstname">New FirstName</string>
+    <string name="update">Update</string>
+    <string name="emptyField">Please fill out all the spaces</string>
+    <string name="zipcode">ZipCode</string>
+    <string name="log_out">Log Out</string>
+    <string name="submit_a_review">Submit a Review</string>
+    <string name="no_zip_code">Please enter a zip code</string>
+</resources>

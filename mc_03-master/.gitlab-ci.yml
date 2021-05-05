@@ -1,0 +1,123 @@
+stages:
+    - backendBuild
+    - backendUnitTests
+    - backendDeploy
+    - backendBuildCarson
+    - backendDeployCarson
+    - androidbuild
+    - androidtest
+    
+backend-build:
+    stage: backendBuild
+    tags:
+        - BACKEND_BUILD_AND_RUN
+    script:
+        - cd Backend
+        - mvn package -B
+    only: 
+        changes: 
+            - Backend/**/*   
+            
+backend-unit-test:
+    stage: backendUnitTests
+    tags:
+        - BACKEND_BUILD_AND_RUN
+    script:
+        - cd Backend
+        - mvn test
+    only: 
+        changes: 
+            - Backend/**/*  
+
+        
+backend-deploy:
+    stage: backendDeploy
+    tags:
+        - BACKEND_BUILD_AND_RUN
+    script:
+        - cd Backend
+        - mvn package -B
+        - sudo mv target/*.jar /target/backend-jarfile.jar
+        - sudo systemctl stop backend-jarfile
+        - sudo systemctl start backend-jarfile
+        
+    artifacts:
+        paths:
+            - Backend/target/*.jar
+    only:
+        refs:
+            - master
+        changes: 
+            - Backend/**/*  
+            
+
+    
+backend-build-carson:
+    stage: backendBuildCarson
+    tags:
+        - CARSON_BACKEND_BUILD_AND_RUN
+    script:
+        - cd Backend
+        - mvn package -B
+    only:
+        variables: 
+            - $GITLAB_USER_EMAIL == "cdmeyer@iastate.edu"
+        changes: 
+            - Backend/**/*  
+            
+        
+backend-deploy-carson:
+    stage: backendDeployCarson
+    tags:
+        - CARSON_BACKEND_BUILD_AND_RUN
+    script:
+        - cd Backend
+        - mvn package -B
+        - sudo mv target/*.jar /target/backend-jarfile.jar
+        - sudo systemctl stop backend-jarfile
+        - sudo systemctl start backend-jarfile
+        
+    artifacts:
+        paths:
+            - Backend/target/*.jar
+    only:
+        variables:
+            - $GITLAB_USER_EMAIL == "cdmeyer@iastate.edu"
+        changes: 
+            - Backend/**/*  
+            
+android-build: 
+    image: javiersantos/android-ci:latest
+    stage: androidbuild
+    before_script: 
+        - export GRADLE_USER_HOME=`pwd`/.gradle
+        - chmod+x./Android_test/gradlew
+    tags: 
+        - FRONTEND
+    script: 
+        - cd Android_test
+        - ./gradlewassemble 
+    artifacts: 
+        paths: 
+        - Android_test/app/build/outputs/
+    only: 
+        refs: 
+            - master 
+        changes: 
+            - Frontend/**/*
+unitTests: 
+    image: javiersantos/android-ci:latest
+    stage: androidtest
+    before_script: 
+        - export GRADLE_USER_HOME=`pwd`/.gradle
+        - chmod+x./Android_test/gradlew
+    tags: 
+        - FRONTEND
+    script: 
+        - cd Android_test
+        - ./gradlewtest
+    only: 
+        refs: 
+            - master 
+        changes: 
+            - Frontend/**/*

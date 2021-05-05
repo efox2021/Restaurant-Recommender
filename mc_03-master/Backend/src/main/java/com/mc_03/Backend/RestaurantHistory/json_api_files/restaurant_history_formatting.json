@@ -1,0 +1,25 @@
+//Note this is not a functioning JSON file, it is just used for reference
+
+// /restaurantHistory/pass Request POST
+{
+  "cookieID" : string_here,
+  "restaurant_id" : int_here,
+  "user_id" : long_here
+}
+
+// /restaurantHistory/pass Response
+{
+  "Status" : "Saved" //Also can contain Missing_Data, User_ID_Not_Valid, Not_Logged_In, User_ID_OR_Restaurant_ID_Incorrect
+}
+
+// /restaurantHistory/visited Request POST
+{
+  "cookieID" : string_here,
+  "restaurant_id" : int_here,
+  "user_id" : long_here
+}
+
+// /restaurantHistory/visited Response
+{
+  "Status" : "Saved" //Also can contain Restaurant_ID_Not_Valid, Cookie_And_User_Dont_Match, Not_Logged_In, User_ID_Not_Valid, Missing_Data
+}

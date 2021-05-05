@@ -1,0 +1,76 @@
+//Note this is not a functioning JSON file, it is just used for reference
+
+// /recommendation/byZipCode Request, use URL formatting like ?zipCode=54028
+
+
+// /recommendation/byZipCode
+
+{
+  "id": 223,
+  "name": "Tropical Smoothie Cafe",
+  "address": {
+    "addressId": 222,
+    "line1": "517 Lincoln Way",
+    "line2": "",
+    "line3": "",
+    "country": "US",
+    "city": "Ames",
+    "state": "IA",
+    "zipCode": 50010
+  },
+  "longitude": -93.6177327,
+  "latitude": 42.0232496,
+  "alias": "tropical-smoothie-cafe-ames",
+  "cusAlias": "sandwiches",
+  "cusTitle": "Sandwiches",
+  "phone": "+15152335460",
+  "yelp_id": "MH_lILgWahripGLCcUEehg",
+  "price": "$",
+  "yelpRating": 4.5,
+  "reviewCount": 26,
+  "dateAdded": "2020-10-28T05:01:26.000+00:00",
+  "url": "https://www.yelp.com/biz/tropical-smoothie-cafe-ames?adjust_creative=6EitsRwZtF6y3QfwHYaEqg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=6EitsRwZtF6y3QfwHYaEqg",
+  "closed": false
+}
+
+// /recommendation/loggedIn/byZipCode  Request
+{
+    "zipCode" : int_here,
+    "user_id" : long_here,
+    "cookieID": string_here
+}
+
+
+// /recommendation/loggedIn/byZipCode
+
+{
+  "Status": "Success" //Others include No_Restaurants_Found, Invalid_ZipCode, Cookie_And_User_Dont_Match, User_Not_Logged_In
+  "Restaurant": {
+    "id": 223,
+    "name": "Tropical Smoothie Cafe",
+    "address": {
+      "addressId": 222,
+      "line1": "517 Lincoln Way",
+      "line2": "",
+      "line3": "",
+      "country": "US",
+      "city": "Ames",
+      "state": "IA",
+      "zipCode": 50010
+    },
+    "longitude": -93.6177327,
+    "latitude": 42.0232496,
+    "alias": "tropical-smoothie-cafe-ames",
+    "cusAlias": "sandwiches",
+    "cusTitle": "Sandwiches",
+    "phone": "+15152335460",
+    "yelp_id": "MH_lILgWahripGLCcUEehg",
+    "price": "$",
+    "yelpRating": 4.5,
+    "reviewCount": 26,
+    "dateAdded": "2020-10-28T05:01:26.000+00:00",
+    "url": "https://www.yelp.com/biz/tropical-smoothie-cafe-ames?adjust_creative=6EitsRwZtF6y3QfwHYaEqg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=6EitsRwZtF6y3QfwHYaEqg",
+    "closed": false
+  }
+
+}

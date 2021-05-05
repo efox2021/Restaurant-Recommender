@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/LoginActivity">
+
+    <fragment
+        android:id="@+id/LoginActivity"
+        android:name="com.example.resturantapplication.LoginActivity"
+        android:label="LoginActivity"
+        tools:layout="@layout/login_page">
+
+        <action
+            android:id="@+id/login_page_to_signup_page"
+            app:destination="@id/SignupActivity" />
+        <action
+            android:id="@+id/action_LoginActivity_to_user_review_page"
+            app:destination="@id/user_review_page" />
+        <action
+            android:id="@+id/loginActivity_to_bufferPage"
+            app:destination="@id/bufferPage" />
+        <action
+            android:id="@+id/action_LoginActivity_to_websocketActivity"
+            app:destination="@id/websocketActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/SignupActivity"
+        android:name="com.example.resturantapplication.SignUpActivity"
+        android:label="SignupActivity"
+        tools:layout="@layout/signup_page">
+
+        <action
+            android:id="@+id/signup_page_to_login_page"
+            app:destination="@id/LoginActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/user_review_page"
+        android:name="com.example.resturantapplication.UserReviewActivity"
+        android:label="user_review_page"
+        tools:layout="@layout/user_review_page" >
+        <action
+            android:id="@+id/userReviewPageToBufferPage"
+            app:destination="@id/bufferPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/bufferPage"
+        android:name="com.example.resturantapplication.BufferPage"
+        android:label="buffer_page"
+        tools:layout="@layout/buffer_page" >
+        <action
+            android:id="@+id/bufferPage_to_LoginActivity"
+            app:destination="@id/LoginActivity" />
+        <action
+            android:id="@+id/bufferPageToUserReviewpage"
+            app:destination="@id/user_review_page" />
+        <action
+            android:id="@+id/bufferPage_to_profilePage"
+            app:destination="@id/profilePage" />
+        <action
+            android:id="@+id/action_bufferPage_to_websocketActivity"
+            app:destination="@id/websocketActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/profilePage"
+        android:name="com.example.resturantapplication.ProfilePage"
+        android:label="profile_page"
+        tools:layout="@layout/profile_page" >
+        <action
+            android:id="@+id/profilePageToBufferPage"
+            app:destination="@id/bufferPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/websocketActivity"
+        android:name="com.example.resturantapplication.WebsocketActivity"
+        android:label="fragment_websocket_activity"
+        tools:layout="@layout/fragment_websocket_activity" />
+</navigation>

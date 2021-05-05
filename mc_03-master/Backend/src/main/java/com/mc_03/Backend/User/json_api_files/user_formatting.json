@@ -1,0 +1,65 @@
+//Note this is not a functioning JSON file, it is just used for reference
+
+// /addUser Request
+{
+   "firstName" : "Testing",
+   "lastName":"TheUser",
+   "username":"cmeyer",
+   "email":"test@gmail.com",
+   "password":"password"
+}
+
+// /addUser Response
+{
+  "status" : "status_code_here" //Will contain the following "User_Added", "Unknown_Error", "Username_Taken"
+}
+
+
+// /login Request
+{
+  "username": "string_of_username",
+  "password": "in_plain_text",
+  "device_name": "name_of_device_accessing"
+}
+
+// /login Response
+{
+  "status" : "status_message_here" //Values that are given back are "Logged_In", "Incorrect_Password", "Not_A_User"
+  "user_id" : "user_id_for_user"   //Not included if not "Logged_In"
+  "cookie": {
+    "user": null,                  //Will always be null
+    "dateAdded": "2020-11-14T17:34:26.197+00:00",
+    "lastLoggedIn": "2020-11-14T17:34:26.197+00:00",
+    "deviceName": "testingDevice",
+    "cookieID": "a3c3aed5e59e033aeb6699ebae209d20"
+  }
+}
+
+// /logout Request
+{
+  "user_id": "int_sent_from_login",
+  "cookieID": "string_sent_from_login",
+}
+
+// /login Response
+{
+  "status" : "status_message_here" //Values that are given back are "missing_user_id", "missing_cookie_id", "user_not_logged_in", "logged_out", "user_id_and_cookie_id_dont_match"
+
+}
+
+// /userChange Request
+{
+  "user_id": "int_sent_from_login",
+  "cookieID": "string_sent_from_login",
+  "username" : "string"  //Optional
+  "firstName" : "string" //Optional
+  "lastName" : "string" //Optional
+  "email" : "string" //Optional
+
+}
+
+// /userChange Response
+{
+  "status" : "status_message_here" //Values that are given back are "missing_user_id", "missing_cookie_id", "user_not_logged_in", "user_info_updated", "user_id_and_cookie_id_dont_match"
+
+}
